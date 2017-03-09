@@ -23,6 +23,14 @@ class MapQuest
         call_api self, @mapquest.version, 'address', options
       end
 
+      def address_find(street, zip, city, country, options = {})
+        options[:street] = street
+        options[:city] = city
+        options[:zip] = zip
+        options[:country] = country
+        call_api self, @mapquest.version, 'address', options
+      end
+
       # Allows you to search for a location using lat/lng values and returns a response object of the found locations
       #
       #   Example: .reverse :location => ['40.0755','-76.329999']
